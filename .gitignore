@@ -1,0 +1,15 @@
+*/env/
+*.exe
+*.pdf
+*.jar
+*.pcapng
+*.db
+*.vmdk
+*.class
+__pycache__/
+*.pyc
+*/impacket/
+*/sqlmap/
+*/marshalsec/
+*/revshellgen/
+*/rogue-jndi/

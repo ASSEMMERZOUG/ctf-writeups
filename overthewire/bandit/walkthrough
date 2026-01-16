@@ -1,0 +1,1679 @@
+ssh banditX@bandit.labs.overthewire.org -p 2220
+
+0/ 
+
+bandit0@bandit:~$ cat readme
+ 
+
+passwd: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+
+1/ 
+
+bandit1@bandit:~$ cat ./-
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+
+
+passwd: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+------------------------------------------------------------------------------------------------------------------------------
+
+2/ 
+
+bandit2@bandit:~$ ls
+spaces in this filename
+bandit2@bandit:~$ cat spaces\ in\ this\ filename 
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+
+
+passwd: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+------------------------------------------------------------------------------------------------------------------------------
+
+3/ 
+
+  Enjoy your stay!
+
+bandit3@bandit:~$ ls
+inhere
+bandit3@bandit:~$ cd inhere/
+bandit3@bandit:~/inhere$ ls
+bandit3@bandit:~/inhere$ ls -la
+total 12
+drwxr-xr-x 2 root    root    4096 Sep 19 07:08 .
+drwxr-xr-x 3 root    root    4096 Sep 19 07:08 ..
+-rw-r----- 1 bandit4 bandit3   33 Sep 19 07:08 ...Hiding-From-You
+bandit3@bandit:~/inhere$ mv ...Hiding-From-You Hiding-From-You
+mv: cannot move '...Hiding-From-You' to 'Hiding-From-You': Permission denied
+bandit3@bandit:~/inhere$ ls
+bandit3@bandit:~/inhere$ sudo mv ...Hiding-From-You Hiding-From-You
+sudo: /usr/bin/sudo must be owned by uid 0 and have the setuid bit set
+bandit3@bandit:~/inhere$ ls
+bandit3@bandit:~/inhere$ cat ...Hiding-From-You
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+bandit3@bandit:~/inhere$ 
+
+
+
+passwd: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+------------------------------------------------------------------------------------------------------------------------------
+
+4/ 
+
+  Enjoy your stay!
+
+bandit4@bandit:~$ ls
+inhere
+bandit4@bandit:~$ cd inhere/
+bandit4@bandit:~/inhere$ ls
+-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+bandit4@bandit:~/inhere$ cat -- -file00
+�p��&�y�,�(jo�.at�:uf�^���@bandit4@bandit:~/inhere$ ^C
+bandit4@bandit:~/inhere$ cat -file00
+cat: invalid option -- 'f'
+Try 'cat --help' for more information.
+bandit4@bandit:~/inhere$ file -file00
+file: Cannot open `ile00' (No such file or directory)
+bandit4@bandit:~/inhere$ cat -- -file00
+�p��&�y�,�(jo�.at�:uf�^���@bandit4@bandit:~/inhere$ ls
+-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+bandit4@bandit:~/inhere$ ^C
+bandit4@bandit:~/inhere$ cat -- -file01
+i�R�,�Λ�:Y���?�%�A����B��ͩ�bandit4@bandit:~/inhere$ ls
+-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+bandit4@bandit:~/inhere$ ^C
+bandit4@bandit:~/inhere$ cat -- -file02
+3�	�)Ʈ�#Y��-6c��IR-�$����:��bandit4@bandit:~/inhere$ ls
+-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+bandit4@bandit:~/inhere$ ^C
+bandit4@bandit:~/inhere$ cat -- -file03
+���/�
+     ������qGi��,�2�Yb�
+dbandit4@bandit:~/inhere$ ls
+-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+bandit4@bandit:~/inhere$ ^C
+bandit4@bandit:~/inhere$ cat -- -file04
+�rOx����h0~ey
+��c�~�h�n��G1bandit4@bandit:~/inhere$ ls
+-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+bandit4@bandit:~/inhere$ ^C
+bandit4@bandit:~/inhere$ cat -- -file05
+}���ߓ��ߤ��W>��#lk�d�ܮ��yE��bandit4@bandit:~/inhere$ ls
+-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+bandit4@bandit:~/inhere$ ^C
+bandit4@bandit:~/inhere$ cat -- -file06
+6�0]�\�$�1�%�������o@��b/��bandit4@bandit:~/inhere$ ls
+-file00  -file01  -file02  -file03  -file04  -file05  -file06  -file07  -file08  -file09
+bandit4@bandit:~/inhere$ ^C
+bandit4@bandit:~/inhere$ cat -- -file07
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+bandit4@bandit:~/inhere$ 
+
+
+passwd: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+------------------------------------------------------------------------------------------------------------------------------
+
+5/ 
+
+  Enjoy your stay!
+
+bandit5@bandit:~$ ls
+inhere
+bandit5@bandit:~$ cd inhere/
+bandit5@bandit:~/inhere$ ls
+maybehere00  maybehere02  maybehere04  maybehere06  maybehere08  maybehere10  maybehere12  maybehere14  maybehere16  maybehere18
+maybehere01  maybehere03  maybehere05  maybehere07  maybehere09  maybehere11  maybehere13  maybehere15  maybehere17  maybehere19
+bandit5@bandit:~/inhere$ find . -type f -size 1033c ! -executable -exec file {} \; | grep 'text'
+./maybehere07/.file2: ASCII text, with very long lines (1000)
+bandit5@bandit:~/inhere$ cat ./maybehere07/.file2
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+                                   
+
+passwd: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+------------------------------------------------------------------------------------------------------------------------------
+
+6/ 
+
+bandit6@bandit:~$ find / -user bandit7 -group bandit6 -size 33c -type f 2>/dev/null
+/var/lib/dpkg/info/bandit7.password
+bandit6@bandit:~$ cat /var/lib/dpkg/info/bandit7.password
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+bandit6@bandit:~$ 
+
+
+
+passwd: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+------------------------------------------------------------------------------------------------------------------------------
+
+7/ 
+
+bandit7@bandit:~$ ls
+data.txt
+bandit7@bandit:~$ grep million data.txt
+millionth	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+millionaire	cWXUQpxGgTIg4NeMwtVoQfAMpyQ0YApk
+millions	gWskpBVQ44IJDcNFhECPFpPZA3uOrp3u
+million	dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+multimillionaire	OjYuzQ8unq4oroxWyrxTxyB7t8A0X3gK
+multimillionaire's	EswzrRXVbpRJoc3wNN2heQwJx5PTY7GP
+multimillionaires	bVk9SQ8XB8gaPQfQ5DKalFjJIRi5Po9R
+million's	yPgYDvHRUSIQ24J8cxeNemYtKTaBx1Mb
+millionaires	nnDRPI2C2iFMsyiW4XG4Jp4AmR3hbjsT
+millionaire's	RKssQIfAsJ3wDJdMtuPp9lWWdRWRr2ot
+
+
+passwd: dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+------------------------------------------------------------------------------------------------------------------------------
+
+8/ 
+
+bandit8@bandit:~$ sort data.txt | uniq -u
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+bandit8@bandit:~$ 
+
+
+passwd: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+------------------------------------------------------------------------------------------------------------------------------
+
+9/ 
+
+
+  Enjoy your stay!
+
+bandit9@bandit:~$ ls
+data.txt
+bandit9@bandit:~$ strings data.txt 
+
+
+passwd: FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+
+
+10/ 
+
+  Enjoy your stay!
+
+bandit10@bandit:~$ ls
+data.txt
+bandit10@bandit:~$ base64 -d data.txt
+The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+
+passwd: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+------------------------------------------------------------------------------------------------------------------------------
+
+11/ 
+
+  Enjoy your stay!
+
+bandit11@bandit:~$ ls
+data.txt
+bandit11@bandit:~$ tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt
+The password is 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+bandit11@bandit:~$ exit
+logout
+Connection to bandit.labs.overthewire.org closed.
+
+
+passwd: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+
+------------------------------------------------------------------------------------------------------------------------------
+
+12/ 
+
+
+
+  Enjoy your stay!
+
+bandit12@bandit:~$ ls
+data.txt
+bandit12@bandit:~$ cd ~
+bandit12@bandit:~$ ls
+data.txt
+bandit12@bandit:~$ cat data.txt 
+00000000: 1f8b 0808 dfcd eb66 0203 6461 7461 322e  .......f..data2.
+00000010: 6269 6e00 013e 02c1 fd42 5a68 3931 4159  bin..>...BZh91AY
+00000020: 2653 59ca 83b2 c100 0017 7fff dff3 f4a7  &SY.............
+00000030: fc9f fefe f2f3 cffe f5ff ffdd bf7e 5bfe  .............~[.
+00000040: faff dfbe 97aa 6fff f0de edf7 b001 3b56  ......o.......;V
+00000050: 0400 0034 d000 0000 0069 a1a1 a000 0343  ...4.....i.....C
+00000060: 4686 4341 a680 068d 1a69 a0d0 0068 d1a0  F.CA.....i...h..
+00000070: 1906 1193 0433 5193 d4c6 5103 4646 9a34  .....3Q...Q.FF.4
+00000080: 0000 d320 0680 0003 264d 0346 8683 d21a  ... ....&M.F....
+00000090: 0686 8064 3400 0189 a683 4fd5 0190 001e  ...d4.....O.....
+000000a0: 9034 d188 0343 0e9a 0c40 69a0 0626 4686  .4...C...@i..&F.
+000000b0: 8340 0310 d340 3469 a680 6800 0006 8d0d  .@...@4i..h.....
+000000c0: 0068 0608 0d1a 64d3 469a 1a68 c9a6 8030  .h....d.F..h...0
+000000d0: 9a68 6801 8101 3204 012a ca60 51e8 1cac  .hh...2..*.`Q...
+000000e0: 532f 0b84 d4d0 5db8 4e88 e127 2921 4c8e  S/....].N..')!L.
+000000f0: b8e6 084c e5db 0835 ff85 4ffc 115a 0d0c  ...L...5..O..Z..
+00000100: c33d 6714 0121 5762 5e0c dbf1 aef9 b6a7  .=g..!Wb^.......
+00000110: 23a6 1d7b 0e06 4214 01dd d539 af76 f0b4  #..{..B....9.v..
+00000120: a22f 744a b61f a393 3c06 4e98 376f dc23  ./tJ....<.N.7o.#
+00000130: 45b1 5f23 0d8f 640b 3534 de29 4195 a7c6  E._#..d.54.)A...
+00000140: de0c 744f d408 4a51 dad3 e208 189b 0823  ..tO..JQ.......#
+00000150: 9fcc 9c81 e58c 9461 9dae ce4a 4284 1706  .......a...JB...
+00000160: 61a3 7f7d 1336 8322 cd59 e2b5 9f51 8d99  a..}.6.".Y...Q..
+00000170: c300 2a9d dd30 68f4 f9f6 7db6 93ea ed9a  ..*..0h...}.....
+00000180: dd7c 891a 1221 0926 97ea 6e05 9522 91f1  .|...!.&..n.."..
+00000190: 7bd3 0ba4 4719 6f37 0c36 0f61 02ae dea9  {...G.o7.6.a....
+000001a0: b52f fc46 9792 3898 b953 36c4 c247 ceb1  ./.F..8..S6..G..
+000001b0: 8a53 379f 4831 52a3 41e9 fa26 9d6c 28f4  .S7.H1R.A..&.l(.
+000001c0: 24ea e394 651d cb5c a96c d505 d986 da22  $...e..\.l....."
+000001d0: 47f4 d58b 589d 567a 920b 858e a95c 63c1  G...X.Vz.....\c.
+000001e0: 2509 612c 5364 8e7d 2402 808e 9b60 02b4  %.a,Sd.}$....`..
+000001f0: 13c7 be0a 1ae3 1400 4796 4370 efc0 9b43  ........G.Cp...C
+00000200: a4cb 882a 4aae 4b81 abf7 1c14 67f7 8a34  ...*J.K.....g..4
+00000210: 0867 e5b6 1df6 b0e8 8023 6d1c 416a 28d0  .g.......#m.Aj(.
+00000220: c460 1604 bba3 2e52 297d 8788 4e30 e1f9  .`.....R)}..N0..
+00000230: 2646 8f5d 3062 2628 c94e 904b 6754 3891  &F.]0b&(.N.KgT8.
+00000240: 421f 4a9f 9feb 2ec9 83e2 c20f fc5d c914  B.J..........]..
+00000250: e142 432a 0ecb 0459 1b15 923e 0200 00    .BC*...Y...>...
+bandit12@bandit:~$ man xxd
+bandit12@bandit:~$ mkdir /tmp/4ss3m
+bandit12@bandit:~$ cp data.txt /tmp/4ss3m
+bandit12@bandit:~$ cd /tmp/4ss3m
+bandit12@bandit:/tmp/4ss3m$ ls
+data.txt
+bandit12@bandit:/tmp/4ss3m$ xxd -r data.txt data
+bandit12@bandit:/tmp/4ss3m$ ls
+data  data.txt
+bandit12@bandit:/tmp/4ss3m$ file data
+data: gzip compressed data, was "data2.bin", last modified: Thu Sep 19 07:08:15 2024, max compression, from Unix, original size modulo 2^32 574
+bandit12@bandit:/tmp/4ss3m$ mv data file.gz
+bandit12@bandit:/tmp/4ss3m$ gzip -d file.gz
+bandit12@bandit:/tmp/4ss3m$ ls
+data.txt  file
+bandit12@bandit:/tmp/4ss3m$ file file
+file: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/4ss3m$ mv file file.bz2
+bandit12@bandit:/tmp/4ss3m$ ls
+data.txt  file.bz2
+bandit12@bandit:/tmp/4ss3m$ bzip2 -d file.bz2
+bandit12@bandit:/tmp/4ss3m$ ls
+data.txt  file
+bandit12@bandit:/tmp/4ss3m$ file file 
+file: gzip compressed data, was "data4.bin", last modified: Thu Sep 19 07:08:15 2024, max compression, from Unix, original size modulo 2^32 20480
+bandit12@bandit:/tmp/4ss3m$ mv file file.gz
+bandit12@bandit:/tmp/4ss3m$ ls
+data.txt  file.gz
+bandit12@bandit:/tmp/4ss3m$ mv file.gz file.bz2
+bandit12@bandit:/tmp/4ss3m$ ls
+data.txt  file.bz2
+bandit12@bandit:/tmp/4ss3m$ gzip -d file.bz2
+gzip: file.bz2: unknown suffix -- ignored
+bandit12@bandit:/tmp/4ss3m$ ls
+data.txt  file.bz2
+bandit12@bandit:/tmp/4ss3m$ file file.bz2
+file.bz2: gzip compressed data, was "data4.bin", last modified: Thu Sep 19 07:08:15 2024, max compression, from Unix, original size modulo 2^32 20480
+bandit12@bandit:/tmp/4ss3m$ mv file.bz2 file.gz
+bandit12@bandit:/tmp/4ss3m$ gzip -d file.gz
+bandit12@bandit:/tmp/4ss3m$ ls
+data.txt  file
+bandit12@bandit:/tmp/4ss3m$ file file
+file: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/4ss3m$ mv file file.tar
+bandit12@bandit:/tmp/4ss3m$ tar xf file.tar
+bandit12@bandit:/tmp/4ss3m$ ls
+data5.bin  data.txt  file.tar
+bandit12@bandit:/tmp/4ss3m$ file file.tar
+file.tar: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/4ss3m$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/4ss3m$ ls
+data5.bin  data.txt  file.tar
+bandit12@bandit:/tmp/4ss3m$ rm file.tar
+bandit12@bandit:/tmp/4ss3m$ ls
+data5.bin  data.txt
+bandit12@bandit:/tmp/4ss3m$ rm data.txt
+bandit12@bandit:/tmp/4ss3m$ ls
+data5.bin
+bandit12@bandit:/tmp/4ss3m$ 
+bandit12@bandit:/tmp/4ss3m$ ls
+data5.bin
+bandit12@bandit:/tmp/4ss3m$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/4ss3m$ ls
+data5.bin
+bandit12@bandit:/tmp/4ss3m$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/4ss3m$ mv data5.bin data.tar
+bandit12@bandit:/tmp/4ss3m$ ls
+data.tar
+bandit12@bandit:/tmp/4ss3m$ tar xf data.tar
+bandit12@bandit:/tmp/4ss3m$ ls
+data6.bin  data.tar
+bandit12@bandit:/tmp/4ss3m$ file data6.bin
+data6.bin: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/4ss3m$ ls
+data6.bin  data.tar
+bandit12@bandit:/tmp/4ss3m$ mv data6.bin data.bz2
+bandit12@bandit:/tmp/4ss3m$ bzip2 -d data.bz2
+bandit12@bandit:/tmp/4ss3m$ ls
+data  data.tar
+bandit12@bandit:/tmp/4ss3m$ cat data
+data8.bin0000644000000000000000000000011714672746737011275 0ustar  rootroo���fdata9.bin
+�.6*K   q)w��>�2A1bandit12@bandit:/tmp/4ss3m$ ls                                       �HU(H,..�/JQ�,Vp�7M)w+N6HNJ���0Ȱ�2J
+data  data.tar
+bandit12@bandit:/tmp/4ss3m$ file data
+data: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/4ss3m$ mv data data.tar
+bandit12@bandit:/tmp/4ss3m$ ls
+data.tar
+bandit12@bandit:/tmp/4ss3m$ tar xf data.tar
+bandit12@bandit:/tmp/4ss3m$ ls
+data8.bin  data.tar
+bandit12@bandit:/tmp/4ss3m$ file data8.bin
+data8.bin: gzip compressed data, was "data9.bin", last modified: Thu Sep 19 07:08:15 2024, max compression, from Unix, original size modulo 2^32 49
+bandit12@bandit:/tmp/4ss3m$ mv data8.bin data.gz
+bandit12@bandit:/tmp/4ss3m$ gzip -d data.gz
+bandit12@bandit:/tmp/4ss3m$ l
+data  data.tar
+bandit12@bandit:/tmp/4ss3m$ ls
+data  data.tar
+bandit12@bandit:/tmp/4ss3m$ file data
+data: ASCII text
+bandit12@bandit:/tmp/4ss3m$ cat data
+The password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+bandit12@bandit:/tmp/4ss3m$ 
+
+
+
+passwd: FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+
+------------------------------------------------------------------------------------------------------------------------------
+
+13/
+
+ bandit13@bandit:~$ ssh -i sshkey.private -p 2220 bandit14@bandit.labs.overthewire.org
+The authenticity of host '[bandit.labs.overthewire.org]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit13/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit13/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+
+
+passwd: no passwd : ssh -i sshkey.private -p 2220 bandit14@bandit.labs.overthewire.org
+
+------------------------------------------------------------------------------------------------------------------------------
+
+14/ 
+
+bandit14@bandit:~$ cat /etc/bandit_pass/bandit14
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+bandit14@bandit:~$ 
+
+
+passwd: MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
+------------------------------------------------------------------------------------------------------------------------------
+
+15/
+
+bandit14@bandit:~$ nc localhost 30000
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+Correct!
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+
+
+
+passwd: 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+
+------------------------------------------------------------------------------------------------------------------------------
+
+16/
+
+ncat --ssl localhost 30001
+using previous passwd
+
+
+bandit15@bandit:~$ ncat --ssl localhost 30001 
+8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+Correct!
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+
+
+#### to access level 17 needed a key stored in a file given chmod 400 and used this way: 
+ssh -i key bandit17@bandit.labs.overthewire.org -p 2220
+
+
+
+bandit16@bandit:~$ cat /etc/bandit_pass/bandit16
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+bandit16@bandit:~$ nmap localhost -p 31000 32000
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-10-31 11:37 UTC
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00032s latency).
+
+PORT      STATE  SERVICE
+31000/tcp closed unknown
+
+Nmap scan report for 32000 (0.0.125.0)
+Host is up (0.00011s latency).
+
+PORT      STATE  SERVICE
+31000/tcp closed unknown
+
+Nmap done: 2 IP addresses (2 hosts up) scanned in 0.07 seconds
+bandit16@bandit:~$ nmap localhost -p 31000-32000
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-10-31 11:37 UTC
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00020s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT      STATE SERVICE
+31046/tcp open  unknown
+31518/tcp open  unknown
+31691/tcp open  unknown
+31790/tcp open  unknown
+31960/tcp open  unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds
+bandit16@bandit:~$ ncat --ssl localhost 31046
+Ncat: Input/output error.
+bandit16@bandit:~$ ncat --ssl localhost 31790
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+Correct!
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAvmOkuifmMg6HL2YPIOjon6iWfbp7c3jx34YkYWqUH57SUdyJ
+imZzeyGC0gtZPGujUSxiJSWI/oTqexh+cAMTSMlOJf7+BrJObArnxd9Y7YT2bRPQ
+Ja6Lzb558YW3FZl87ORiO+rW4LCDCNd2lUvLE/GL2GWyuKN0K5iCd5TbtJzEkQTu
+DSt2mcNn4rhAL+JFr56o4T6z8WWAW18BR6yGrMq7Q/kALHYW3OekePQAzL0VUYbW
+JGTi65CxbCnzc/w4+mqQyvmzpWtMAzJTzAzQxNbkR2MBGySxDLrjg0LWN6sK7wNX
+x0YVztz/zbIkPjfkU1jHS+9EbVNj+D1XFOJuaQIDAQABAoIBABagpxpM1aoLWfvD
+KHcj10nqcoBc4oE11aFYQwik7xfW+24pRNuDE6SFthOar69jp5RlLwD1NhPx3iBl
+J9nOM8OJ0VToum43UOS8YxF8WwhXriYGnc1sskbwpXOUDc9uX4+UESzH22P29ovd
+d8WErY0gPxun8pbJLmxkAtWNhpMvfe0050vk9TL5wqbu9AlbssgTcCXkMQnPw9nC
+YNN6DDP2lbcBrvgT9YCNL6C+ZKufD52yOQ9qOkwFTEQpjtF4uNtJom+asvlpmS8A
+vLY9r60wYSvmZhNqBUrj7lyCtXMIu1kkd4w7F77k+DjHoAXyxcUp1DGL51sOmama
++TOWWgECgYEA8JtPxP0GRJ+IQkX262jM3dEIkza8ky5moIwUqYdsx0NxHgRRhORT
+8c8hAuRBb2G82so8vUHk/fur85OEfc9TncnCY2crpoqsghifKLxrLgtT+qDpfZnx
+SatLdt8GfQ85yA7hnWWJ2MxF3NaeSDm75Lsm+tBbAiyc9P2jGRNtMSkCgYEAypHd
+HCctNi/FwjulhttFx/rHYKhLidZDFYeiE/v45bN4yFm8x7R/b0iE7KaszX+Exdvt
+SghaTdcG0Knyw1bpJVyusavPzpaJMjdJ6tcFhVAbAjm7enCIvGCSx+X3l5SiWg0A
+R57hJglezIiVjv3aGwHwvlZvtszK6zV6oXFAu0ECgYAbjo46T4hyP5tJi93V5HDi
+Ttiek7xRVxUl+iU7rWkGAXFpMLFteQEsRr7PJ/lemmEY5eTDAFMLy9FL2m9oQWCg
+R8VdwSk8r9FGLS+9aKcV5PI/WEKlwgXinB3OhYimtiG2Cg5JCqIZFHxD6MjEGOiu
+L8ktHMPvodBwNsSBULpG0QKBgBAplTfC1HOnWiMGOU3KPwYWt0O6CdTkmJOmL8Ni
+blh9elyZ9FsGxsgtRBXRsqXuz7wtsQAgLHxbdLq/ZJQ7YfzOKU4ZxEnabvXnvWkU
+YOdjHdSOoKvDQNWu6ucyLRAWFuISeXw9a/9p7ftpxm0TSgyvmfLF2MIAEwyzRqaM
+77pBAoGAMmjmIJdjp+Ez8duyn3ieo36yrttF5NSsJLAbxFpdlc1gvtGCWW+9Cq0b
+dxviW8+TFVEBl1O4f7HVm6EpTscdDxU+bCXWkfjuRb7Dy9GOtt9JPsX8MBTakzh3
+vBgsyi/sN3RqRBcGU40fOoZyfAMT8s1m/uYv52O6IgeuZ/ujbjY=
+-----END RSA PRIVATE KEY-----
+
+
+passwd: kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+
+------------------------------------------------------------------------------------------------------------------------------
+
+17/ 
+
+
+bandit17@bandit:~$ diff passwords.old passwords.new
+42c42
+< ktfgBvpMzWKR5ENj26IbLGSblgUG9CzB
+---
+> x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+
+
+
+passwd: x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+
+------------------------------------------------------------------------------------------------------------------------------
+
+18/
+
+ [/media/assem/ext1/43/HX/ctf/overthewire/bandit]
+ ✘  assem  ssh -t bandit18@bandit.labs.overthewire.org -p 2220 /bin/sh 
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit18@bandit.labs.overthewire.org's password: 
+$ ls
+readme
+$ cat readme
+cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+$ exit
+Connection to bandit.labs.overthewire.org closed.
+
+
+passwd: cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+
+------------------------------------------------------------------------------------------------------------------------------
+
+19/ 
+
+bandit19@bandit:~$ ./bandit20-do cat '/etc/bandit_pass/bandit20'
+0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+bandit19@bandit:~$ 
+
+
+passwd: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+
+------------------------------------------------------------------------------------------------------------------------------
+
+20/
+
+#### connecting 2 terminals this way:
+
+bandit20@bandit:~$ nc -l 1234
+0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+bandit20@bandit:~$ 
+
+
+bandit20@bandit:~$ ./suconnect 1234
+Read: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+Password matches, sending next password
+bandit20@bandit:~$ 
+
+
+
+passwd: EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+
+------------------------------------------------------------------------------------------------------------------------------
+
+21/
+
+bandit21@bandit:/etc/cron.d$ cat /etc/cron.d/*
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+30 3 * * 0 root test -e /run/systemd/system || SERVICE_MODE=1 /usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_all_cron
+10 3 * * * root test -e /run/systemd/system || SERVICE_MODE=1 /sbin/e2scrub_all -A -r
+cat: /etc/cron.d/otw-tmp-dir: Permission denied
+# The first element of the path is a directory where the debian-sa1
+# script is located
+PATH=/usr/lib/sysstat:/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Activity reports every 10 minutes everyday
+5-55/10 * * * * root command -v debian-sa1 > /dev/null && debian-sa1 1 1
+
+# Additional run at 23:59 to rotate the statistics file
+59 23 * * * root command -v debian-sa1 > /dev/null && debian-sa1 60 2
+bandit21@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit22.sh
+cat /usr/bin/cronjob_bandit23.sh
+cat /usr/bin/cronjob_bandit24.sh
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat: /usr/bin/cronjob_bandit23.sh: Permission denied
+cat: /usr/bin/cronjob_bandit24.sh: Permission denied
+bandit21@bandit:/etc/cron.d$ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+bandit21@bandit:/etc/cron.d$
+
+
+passwd: tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
+
+------------------------------------------------------------------------------------------------------------------------------
+
+22/ 
+
+  Enjoy your stay!
+
+bandit22@bandit:~$ ls
+bandit22@bandit:~$ cat /etc/cron.d/cronjob_bandit23
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+bandit22@bandit:~$ cat /usr/bin/cronjob_bandit23.sh
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+bandit22@bandit:~$ $myname
+bandit22@bandit:~$ myname=bandit23
+bandit22@bandit:~$ whoami
+bandit22
+bandit22@bandit:~$ echo I am user $myname | md5sum | cut -d ' ' -f 1
+8ca319486bfbbc3663ea0fbe81326349
+bandit22@bandit:~$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
+bandit22@bandit:~$ 
+
+
+
+passwd: 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
+
+------------------------------------------------------------------------------------------------------------------------------
+
+23/ 
+
+a copy of the shell code created to solve this level:
+
+bandit23@bandit:/tmp/4ss3m$ cat test.sh 
+#!/bin/bash
+
+cat /etc/bandit_pass/bandit24 > /tmp/4ss3m/pass.txt
+
+
+
+
+
+
+passwd: gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8
+
+------------------------------------------------------------------------------------------------------------------------------
+
+24/
+
+sh code used:
+
+
+bandit24@bandit:/tmp/test551$ for i in {0000..5000};do echo gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 $i>>list1;done
+bandit24@bandit:/tmp/test551$ for i in {5001..9999};do echo gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 $i>>list2;done
+bandit24@bandit:/tmp/test551$ cat list1 | nc localhost 30002 | uniq
+I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
+Wrong! Please enter the correct current password and pincode. Try again.
+^C
+bandit24@bandit:/tmp/test551$ cat list2 | nc localhost 30002 | uniq
+I am the pincode checker for user bandit25. Please enter the password for user bandit24 and the secret pincode on a single line, separated by a space.
+Wrong! Please enter the correct current password and pincode. Try again.
+Correct!
+The password of user bandit25 is iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
+
+bandit24@bandit:/tmp/test551$ 
+
+
+
+
+passwd: iCi86ttT4KSNe1armKiwbQNmB3YJP3q4
+
+------------------------------------------------------------------------------------------------------------------------------
+
+25/
+
+  Enjoy your stay!
+
+bandit25@bandit:~$ ls
+bandit26.sshkey
+bandit25@bandit:~$ cat bandit26.sshkey 
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEApis2AuoooEqeYWamtwX2k5z9uU1Afl2F8VyXQqbv/LTrIwdW
+pTfaeRHXzr0Y0a5Oe3GB/+W2+PReif+bPZlzTY1XFwpk+DiHk1kmL0moEW8HJuT9
+/5XbnpjSzn0eEAfFax2OcopjrzVqdBJQerkj0puv3UXY07AskgkyD5XepwGAlJOG
+xZsMq1oZqQ0W29aBtfykuGie2bxroRjuAPrYM4o3MMmtlNE5fC4G9Ihq0eq73MDi
+1ze6d2jIGce873qxn308BA2qhRPJNEbnPev5gI+5tU+UxebW8KLbk0EhoXB953Ix
+3lgOIrT9Y6skRjsMSFmC6WN/O7ovu8QzGqxdywIDAQABAoIBAAaXoETtVT9GtpHW
+qLaKHgYtLEO1tOFOhInWyolyZgL4inuRRva3CIvVEWK6TcnDyIlNL4MfcerehwGi
+il4fQFvLR7E6UFcopvhJiSJHIcvPQ9FfNFR3dYcNOQ/IFvE73bEqMwSISPwiel6w
+e1DjF3C7jHaS1s9PJfWFN982aublL/yLbJP+ou3ifdljS7QzjWZA8NRiMwmBGPIh
+Yq8weR3jIVQl3ndEYxO7Cr/wXXebZwlP6CPZb67rBy0jg+366mxQbDZIwZYEaUME
+zY5izFclr/kKj4s7NTRkC76Yx+rTNP5+BX+JT+rgz5aoQq8ghMw43NYwxjXym/MX
+c8X8g0ECgYEA1crBUAR1gSkM+5mGjjoFLJKrFP+IhUHFh25qGI4Dcxxh1f3M53le
+wF1rkp5SJnHRFm9IW3gM1JoF0PQxI5aXHRGHphwPeKnsQ/xQBRWCeYpqTme9amJV
+tD3aDHkpIhYxkNxqol5gDCAt6tdFSxqPaNfdfsfaAOXiKGrQESUjIBcCgYEAxvmI
+2ROJsBXaiM4Iyg9hUpjZIn8TW2UlH76pojFG6/KBd1NcnW3fu0ZUU790wAu7QbbU
+i7pieeqCqSYcZsmkhnOvbdx54A6NNCR2btc+si6pDOe1jdsGdXISDRHFb9QxjZCj
+6xzWMNvb5n1yUb9w9nfN1PZzATfUsOV+Fy8CbG0CgYEAifkTLwfhqZyLk2huTSWm
+pzB0ltWfDpj22MNqVzR3h3d+sHLeJVjPzIe9396rF8KGdNsWsGlWpnJMZKDjgZsz
+JQBmMc6UMYRARVP1dIKANN4eY0FSHfEebHcqXLho0mXOUTXe37DWfZza5V9Oify3
+JquBd8uUptW1Ue41H4t/ErsCgYEArc5FYtF1QXIlfcDz3oUGz16itUZpgzlb71nd
+1cbTm8EupCwWR5I1j+IEQU+JTUQyI1nwWcnKwZI+5kBbKNJUu/mLsRyY/UXYxEZh
+ibrNklm94373kV1US/0DlZUDcQba7jz9Yp/C3dT/RlwoIw5mP3UxQCizFspNKOSe
+euPeaxUCgYEAntklXwBbokgdDup/u/3ms5Lb/bm22zDOCg2HrlWQCqKEkWkAO6R5
+/Wwyqhp/wTl8VXjxWo+W+DmewGdPHGQQ5fFdqgpuQpGUq24YZS8m66v5ANBwd76t
+IZdtF5HXs2S5CADTwniUS5mX1HO9l5gUkk+h0cH5JnPtsMCnAUM+BRY=
+-----END RSA PRIVATE KEY-----
+
+
+passwd: no passwd: ssh -i bandit26.sshkey bandit26@bandit.labs.overthewire.org -p 2220
+
+------------------------------------------------------------------------------------------------------------------------------
+
+26/
+
+ssh -i bandit26.sshkey bandit26@bandit.labs.overthewire.org -p 2220
+s0773xxkk0MXfdqOfPRVr9L3jJBUOgCZ
+:e /etc/bandit_pass/bandit26
+
+passwd: 
+
+
+no passwd here just changing the shell using
+  v
+  :e shell=/bin/bash
+
+------------------------------------------------------------------------------------------------------------------------------
+
+27/
+
+bandit26@bandit:~$ ./bandit27-do cat /etc/bandit_pass/bandit27
+upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB
+bandit26@bandit:~$ 
+
+
+
+passwd: upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB
+
+------------------------------------------------------------------------------------------------------------------------------
+
+28/
+
+bandit27@bandit:/tmp/4ss3mboss$ git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
+Cloning into 'repo'...
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit27/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit27/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit27-git@localhost's password: 
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+bandit27@bandit:/tmp/4ss3mboss$ ls
+repo
+bandit27@bandit:/tmp/4ss3mboss$ ls repo/
+README
+bandit27@bandit:/tmp/4ss3mboss$ cat repo/README 
+The password to the next level is: Yz9IpL0sBcCeuG7m9uQFt8ZNpS4HZRcN
+bandit27@bandit:/tmp/4ss3mboss$ 
+
+
+
+passwd: Yz9IpL0sBcCeuG7m9uQFt8ZNpS4HZRcN
+
+------------------------------------------------------------------------------------------------------------------------------
+
+29/
+
+  Enjoy your stay!
+
+bandit28@bandit:~$ ls
+bandit28@bandit:~$ git clone ssh://bandit28-git@localhost:2220/home/bandit27-git/repo
+fatal: could not create work tree dir 'repo': Permission denied
+bandit28@bandit:~$ cd /tmp/4ss3mboss2
+-bash: cd: /tmp/4ss3mboss2: No such file or directory
+bandit28@bandit:~$ mkdir /tmp/4ss3mboss2
+bandit28@bandit:~$ cd /tmp/4ss3mboss2
+bandit28@bandit:/tmp/4ss3mboss2$ ls
+bandit28@bandit:/tmp/4ss3mboss2$ git clone ssh://bandit28-git@localhost:2220/home/bandit27-git/repo
+Cloning into 'repo'...
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit28/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit28/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit28-git@localhost's password: 
+fatal: '/home/bandit27-git/repo' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bandit28@bandit:/tmp/4ss3mboss2$ ssh://bandit28-git@localhost/home/bandit28-git/repo
+-bash: ssh://bandit28-git@localhost/home/bandit28-git/repo: No such file or directory
+bandit28@bandit:/tmp/4ss3mboss2$ git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+Cloning into 'repo'...
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes     
+Could not create directory '/home/bandit28/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit28/.ssh/known_hosts).
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+!!! You are trying to log into this SSH server on port 22, which is not intended.
+
+bandit28-git@localhost: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bandit28@bandit:/tmp/4ss3mboss2$ git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+Cloning into 'repo'...
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit28/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit28/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit28-git@localhost's password: 
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 9 (delta 2), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (9/9), done.
+Resolving deltas: 100% (2/2), done.
+bandit28@bandit:/tmp/4ss3mboss2$ ls
+repo
+bandit28@bandit:/tmp/4ss3mboss2$ cd repo/
+bandit28@bandit:/tmp/4ss3mboss2/repo$ ls
+README.md
+bandit28@bandit:/tmp/4ss3mboss2/repo$ cat r
+cat: r: No such file or directory
+bandit28@bandit:/tmp/4ss3mboss2/repo$ car README.md 
+Command 'car' not found, but can be installed with:
+apt install ucommon-utils
+Please ask your administrator.
+bandit28@bandit:/tmp/4ss3mboss2/repo$ apt install ucommon-utils
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+bandit28@bandit:/tmp/4ss3mboss2/repo$ cat README.md
+# Bandit Notes
+Some notes for level29 of bandit.
+
+## credentials
+
+- username: bandit29
+- password: xxxxxxxxxx
+
+bandit28@bandit:/tmp/4ss3mboss2/repo$ git show
+commit 817e303aa6c2b207ea043c7bba1bb7575dc4ea73 (HEAD -> master, origin/master, origin/HEAD)
+Author: Morla Porla <morla@overthewire.org>
+Date:   Thu Sep 19 07:08:39 2024 +0000
+
+    fix info leak
+
+diff --git a/README.md b/README.md
+index d4e3b74..5c6457b 100644
+--- a/README.md
++++ b/README.md
+@@ -4,5 +4,5 @@ Some notes for level29 of bandit.
+ ## credentials
+ 
+ - username: bandit29
+-- password: 4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
++- password: xxxxxxxxxx
+ 
+bandit28@bandit:/tmp/4ss3mboss2/repo$ 
+
+
+passwd: 4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
+
+------------------------------------------------------------------------------------------------------------------------------
+
+30/
+
+  Enjoy your stay!
+
+bandit29@bandit:~$ ls
+bandit29@bandit:~$ cd /tmp
+bandit29@bandit:/tmp$ git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
+fatal: destination path 'repo' already exists and is not an empty directory.
+bandit29@bandit:/tmp$ mkdir /4ss3mboss3
+mkdir: cannot create directory ‘/4ss3mboss3’: Permission denied
+bandit29@bandit:/tmp$ mkdir 4ss3mboss3
+bandit29@bandit:/tmp/4ss3mboss3$ git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
+Cloning into 'repo'...
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit29/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit29/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit29-git@localhost's password: 
+remote: Enumerating objects: 16, done.
+remote: Counting objects: 100% (16/16), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 16 (delta 2), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (16/16), done.
+Resolving deltas: 100% (2/2), done.
+bandit29@bandit:/tmp/4ss3mboss3$ ls 
+repo
+bandit29@bandit:/tmp/4ss3mboss3$ cd repo/
+bandit29@bandit:/tmp/4ss3mboss3/repo$ ls
+README.md
+bandit29@bandit:/tmp/4ss3mboss3/repo$ cat README.md 
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit30
+- password: <no passwords in production!>
+
+bandit29@bandit:/tmp/4ss3mboss3/repo$ show README.md 
+Command 'show' not found, but can be installed with:
+apt install mailutils-mh  # version 1:3.16-1build1, or
+apt install mmh           # version 0.4-6
+apt install nmh           # version 1.8-1
+Ask your administrator to install one of them.
+bandit29@bandit:/tmp/4ss3mboss3/repo$ git show
+commit 6ac7796430c0f39290a0e29a4d32e5126544b022 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:41 2024 +0000
+
+    fix username
+
+diff --git a/README.md b/README.md
+index 2da2f39..1af21d3 100644
+--- a/README.md
++++ b/README.md
+@@ -3,6 +3,6 @@ Some notes for bandit30 of bandit.
+ 
+ ## credentials
+ 
+-- username: bandit29
++- username: bandit30
+ - password: <no passwords in production!>
+ 
+bandit29@bandit:/tmp/4ss3mboss3/repo$ git show
+show          show-branch   
+bandit29@bandit:/tmp/4ss3mboss3/repo$ git show
+show          show-branch   
+bandit29@bandit:/tmp/4ss3mboss3/repo$ git show
+show          show-branch   
+bandit29@bandit:/tmp/4ss3mboss3/repo$ git show origin/dev
+commit 081ac380883f49b0d9dc76a82c53211ef7ba74b0 (origin/dev)
+Author: Morla Porla <morla@overthewire.org>
+Date:   Thu Sep 19 07:08:41 2024 +0000
+
+    add data needed for development
+
+diff --git a/README.md b/README.md
+index 1af21d3..bc6ad3d 100644
+--- a/README.md
++++ b/README.md
+@@ -4,5 +4,5 @@ Some notes for bandit30 of bandit.
+ ## credentials
+ 
+ - username: bandit30
+-- password: <no passwords in production!>
++- password: qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
+ 
+bandit29@bandit:/tmp/4ss3mboss3/repo$ 
+
+
+
+passwd: qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
+
+------------------------------------------------------------------------------------------------------------------------------
+
+31/
+
+  Enjoy your stay!
+
+bandit30@bandit:~$ cd /tmp/4ss3mboss3
+bandit30@bandit:/tmp/4ss3mboss3$ ls
+repo
+bandit30@bandit:/tmp/4ss3mboss3$ rm repo/
+rm: cannot remove 'repo/': Is a directory
+bandit30@bandit:/tmp/4ss3mboss3$ rm -rf repo/
+rm: cannot remove 'repo/README.md': Permission denied
+rm: cannot remove 'repo/.git/index': Permission denied
+rm: cannot remove 'repo/.git/refs/remotes/origin/HEAD': Permission denied
+rm: cannot remove 'repo/.git/refs/tags': Permission denied
+rm: cannot remove 'repo/.git/refs/heads/master': Permission denied
+rm: cannot remove 'repo/.git/info/exclude': Permission denied
+rm: cannot remove 'repo/.git/packed-refs': Permission denied
+rm: cannot remove 'repo/.git/HEAD': Permission denied
+rm: cannot remove 'repo/.git/branches': Permission denied
+rm: cannot remove 'repo/.git/config': Permission denied
+rm: cannot remove 'repo/.git/description': Permission denied
+rm: cannot remove 'repo/.git/logs/refs/remotes/origin/HEAD': Permission denied
+rm: cannot remove 'repo/.git/logs/refs/heads/master': Permission denied
+rm: cannot remove 'repo/.git/logs/HEAD': Permission denied
+rm: cannot remove 'repo/.git/hooks/update.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/prepare-commit-msg.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/commit-msg.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-applypatch.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/post-update.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/push-to-checkout.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-receive.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/applypatch-msg.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-commit.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-rebase.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-merge-commit.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/sendemail-validate.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/pre-push.sample': Permission denied
+rm: cannot remove 'repo/.git/hooks/fsmonitor-watchman.sample': Permission denied
+rm: cannot remove 'repo/.git/objects/pack/pack-13b1f2c427a3148bdf1a3d579f6bb1d36807fa9e.pack': Permission denied
+rm: cannot remove 'repo/.git/objects/pack/pack-13b1f2c427a3148bdf1a3d579f6bb1d36807fa9e.rev': Permission denied
+rm: cannot remove 'repo/.git/objects/pack/pack-13b1f2c427a3148bdf1a3d579f6bb1d36807fa9e.idx': Permission denied
+rm: cannot remove 'repo/.git/objects/info': Permission denied
+bandit30@bandit:/tmp/4ss3mboss3$ ls
+repo
+bandit30@bandit:/tmp/4ss3mboss3$ cd ..
+bandit30@bandit:/tmp$ mkdir 4ss3mboss4
+bandit30@bandit:/tmp$ ls
+ls: cannot open directory '.': Permission denied
+bandit30@bandit:/tmp$ cd 4ss3mboss4
+bandit30@bandit:/tmp/4ss3mboss4$ ls
+bandit30@bandit:/tmp/4ss3mboss4$ git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+Cloning into 'repo'...
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit30/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+!!! You are trying to log into this SSH server on port 22, which is not intended.
+
+bandit30-git@localhost: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bandit30@bandit:/tmp/4ss3mboss4$ git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
+Cloning into 'repo'...
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit30/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+!!! You are trying to log into this SSH server on port 22, which is not intended.
+
+bandit31-git@localhost: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bandit30@bandit:/tmp/4ss3mboss4$ git clone ssh://bandit30-git@localhost/home/bandit30-git/repo.git
+Cloning into 'repo'...
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit30/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+!!! You are trying to log into this SSH server on port 22, which is not intended.
+
+bandit30-git@localhost: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bandit30@bandit:/tmp/4ss3mboss4$ git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+Cloning into 'repo'...
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit30/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+!!! You are trying to log into this SSH server on port 22, which is not intended.
+
+bandit30-git@localhost: Permission denied (publickey).
+fatal: Could not read from remote repository.
+bandit30@bandit:/tmp/4ss3mboss4$ git clone ssh://bandit30-git@localhost/home/bandit30-git/rep
+Cloning into 'rep'...
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? ^C
+bandit30@bandit:/tmp/4ss3mboss4$ git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+Cloning into 'repo'...
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit30/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+!!! You are trying to log into this SSH server on port 22, which is not intended.
+
+bandit30-git@localhost: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+bandit30@bandit:/tmp/4ss3mboss4$ git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repo
+Cloning into 'repo'...
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit30/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit30/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit30-git@localhost's password: 
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (4/4), done.
+bandit30@bandit:/tmp/4ss3mboss4$ ls
+repo
+bandit30@bandit:/tmp/4ss3mboss4$ cd repo/
+bandit30@bandit:/tmp/4ss3mboss4/repo$ ls
+README.md
+bandit30@bandit:/tmp/4ss3mboss4/repo$ cat README.md 
+just an epmty file... muahaha
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git log
+commit acfc3c67816fc778c4aeb5893299451ca6d65a78 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:44 2024 +0000
+
+    initial commit of README.md
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git log 
+commit acfc3c67816fc778c4aeb5893299451ca6d65a78 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:44 2024 +0000
+
+    initial commit of README.md
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show
+commit acfc3c67816fc778c4aeb5893299451ca6d65a78 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:44 2024 +0000
+
+    initial commit of README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..029ba42
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++just an epmty file... muahaha
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show 
+HEAD            master          origin/HEAD     origin/master   secret 
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show HEAD 
+commit acfc3c67816fc778c4aeb5893299451ca6d65a78 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:44 2024 +0000
+
+    initial commit of README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..029ba42
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++just an epmty file... muahaha
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show master 
+commit acfc3c67816fc778c4aeb5893299451ca6d65a78 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:44 2024 +0000
+
+    initial commit of README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..029ba42
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++just an epmty file... muahaha
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show origin/
+origin/HEAD     origin/master   
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show origin/HEAD 
+commit acfc3c67816fc778c4aeb5893299451ca6d65a78 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:44 2024 +0000
+
+    initial commit of README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..029ba42
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++just an epmty file... muahaha
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show origin/
+origin/HEAD     origin/master   
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show origin/master 
+commit acfc3c67816fc778c4aeb5893299451ca6d65a78 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:44 2024 +0000
+
+    initial commit of README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..029ba42
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++just an epmty file... muahaha
+bandit30@bandit:/tmp/4ss3mboss4/repo$ git show secret
+fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy
+bandit30@bandit:/tmp/4ss3mboss4/repo$ 
+
+
+passwd:fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy
+
+------------------------------------------------------------------------------------------------------------------------------
+
+32/
+
+  Enjoy your stay!
+
+bandit31@bandit:~$ ls
+bandit31@bandit:~$ git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
+fatal: could not create work tree dir 'repo': Permission denied
+bandit31@bandit:~$ git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
+fatal: could not create work tree dir 'repo': Permission denied
+bandit31@bandit:~$ cd /tmp/4ss3mboss5
+-bash: cd: /tmp/4ss3mboss5: No such file or directory
+bandit31@bandit:~$ mkdir cd /tmp/4ss3mboss5
+mkdir: cannot create directory ‘cd’: Permission denied
+bandit31@bandit:~$ ^C
+bandit31@bandit:~$ ^C
+bandit31@bandit:~$ mkdir -p /tmp/4ss3mboss5 && cd "$_"
+bandit31@bandit:/tmp/4ss3mboss5$ ls
+bandit31@bandit:/tmp/4ss3mboss5$ git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
+Cloning into 'repo'...
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit31/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit31/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit31-git@localhost's password: 
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (4/4), done.
+bandit31@bandit:/tmp/4ss3mboss5$ ls
+repo
+bandit31@bandit:/tmp/4ss3mboss5$ cd repo/
+bandit31@bandit:/tmp/4ss3mboss5/repo$ ls
+README.md
+bandit31@bandit:/tmp/4ss3mboss5/repo$ cat README.md 
+This time your task is to push a file to the remote repository.
+
+Details:
+    File name: key.txt
+    Content: 'May I come in?'
+    Branch: master
+
+bandit31@bandit:/tmp/4ss3mboss5/repo$ echo "May I come in?" > key.txt
+bandit31@bandit:/tmp/4ss3mboss5/repo$ git add key.txt
+git commit -m "Add key.txt"
+git push origin master
+The following paths are ignored by one of your .gitignore files:
+key.txt
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit31/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit31/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit31-git@localhost's password: 
+Everything up-to-date
+bandit31@bandit:/tmp/4ss3mboss5/repo$ ls
+key.txt  README.md
+bandit31@bandit:/tmp/4ss3mboss5/repo$ cat key.txt 
+May I come in?
+bandit31@bandit:/tmp/4ss3mboss5/repo$ ls -la
+total 24
+drwxrwxr-x 3 bandit31 bandit31 4096 Nov  5 13:51 .
+drwxrwxr-x 3 bandit31 bandit31 4096 Nov  5 13:50 ..
+drwxrwxr-x 8 bandit31 bandit31 4096 Nov  5 13:51 .git
+-rw-rw-r-- 1 bandit31 bandit31    6 Nov  5 13:50 .gitignore
+-rw-rw-r-- 1 bandit31 bandit31   15 Nov  5 13:51 key.txt
+-rw-rw-r-- 1 bandit31 bandit31  147 Nov  5 13:50 README.md
+bandit31@bandit:/tmp/4ss3mboss5/repo$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+bandit31@bandit:/tmp/4ss3mboss5/repo$ git add key.txt
+The following paths are ignored by one of your .gitignore files:
+key.txt
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+bandit31@bandit:/tmp/4ss3mboss5/repo$ git add key.txt -f
+bandit31@bandit:/tmp/4ss3mboss5/repo$ ls
+key.txt  README.md
+bandit31@bandit:/tmp/4ss3mboss5/repo$ cat key.txt 
+May I come in?
+bandit31@bandit:/tmp/4ss3mboss5/repo$ git commit -m "I justadded key.txt file"
+[master ecc4b43] I justadded key.txt file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 key.txt
+bandit31@bandit:/tmp/4ss3mboss5/repo$ git statua
+git: 'statua' is not a git command. See 'git --help'.
+
+The most similar command is
+  status
+bandit31@bandit:/tmp/4ss3mboss5/repo$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+bandit31@bandit:/tmp/4ss3mboss5/repo$ git push
+The authenticity of host '[localhost]:2220 ([127.0.0.1]:2220)' can't be established.
+ED25519 key fingerprint is SHA256:C2ihUBV7ihnV1wUXRb4RrEcLfXC5CXlhmAAM/urerLY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/bandit31/.ssh' (Permission denied).
+Failed to add the host to the list of known hosts (/home/bandit31/.ssh/known_hosts).
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit31-git@localhost's password: 
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 335 bytes | 335.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: ### Attempting to validate files... ####
+remote: 
+remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+remote: 
+remote: Well done! Here is the password for the next level:
+remote: 3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K 
+remote: 
+remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+remote: 
+To ssh://localhost:2220/home/bandit31-git/repo
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'ssh://localhost:2220/home/bandit31-git/repo'
+
+
+passwd: 3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K
+
+------------------------------------------------------------------------------------------------------------------------------
+
+33/
+
+ [~]
+ assem  ssh bandit32@bandit.labs.overthewire.org -p 2220 
+                         _                     _ _ _   
+                        | |__   __ _ _ __   __| (_) |_ 
+                        | '_ \ / _` | '_ \ / _` | | __|
+                        | |_) | (_| | | | | (_| | | |_ 
+                        |_.__/ \__,_|_| |_|\__,_|_|\__|
+                                                       
+
+                      This is an OverTheWire game server. 
+            More information on http://www.overthewire.org/wargames
+
+bandit32@bandit.labs.overthewire.org's password: 
+
+      ,----..            ,----,          .---.
+     /   /   \         ,/   .`|         /. ./|
+    /   .     :      ,`   .'  :     .--'.  ' ;
+   .   /   ;.  \   ;    ;     /    /__./ \ : |
+  .   ;   /  ` ; .'___,/    ,' .--'.  '   \' .
+  ;   |  ; \ ; | |    :     | /___/ \ |    ' '
+  |   :  | ; | ' ;    |.';  ; ;   \  \;      :
+  .   |  ' ' ' : `----'  |  |  \   ;  `      |
+  '   ;  \; /  |     '   :  ;   .   \    .\  ;
+   \   \  ',  /      |   |  '    \   \   ' \ |
+    ;   :    /       '   :  |     :   '  |--"
+     \   \ .'        ;   |.'       \   \ ;
+  www. `---` ver     '---' he       '---" ire.org
+
+
+Welcome to OverTheWire!
+
+If you find any problems, please report them to the #wargames channel on
+discord or IRC.
+
+--[ Playing the games ]--
+
+  This machine might hold several wargames.
+  If you are playing "somegame", then:
+
+    * USERNAMES are somegame0, somegame1, ...
+    * Most LEVELS are stored in /somegame/.
+    * PASSWORDS for each level are stored in /etc/somegame_pass/.
+
+  Write-access to homedirectories is disabled. It is advised to create a
+  working directory with a hard-to-guess name in /tmp/.  You can use the
+  command "mktemp -d" in order to generate a random and hard to guess
+  directory in /tmp/.  Read-access to both /tmp/ is disabled and to /proc
+  restricted so that users cannot snoop on eachother. Files and directories
+  with easily guessable or short names will be periodically deleted! The /tmp
+  directory is regularly wiped.
+  Please play nice:
+
+    * don't leave orphan processes running
+    * don't leave exploit-files laying around
+    * don't annoy other players
+    * don't post passwords or spoilers
+    * again, DONT POST SPOILERS!
+      This includes writeups of your solution on your blog or website!
+
+--[ Tips ]--
+
+  This machine has a 64bit processor and many security-features enabled
+  by default, although ASLR has been switched off.  The following
+  compiler flags might be interesting:
+
+    -m32                    compile for 32bit
+    -fno-stack-protector    disable ProPolice
+    -Wl,-z,norelro          disable relro
+
+  In addition, the execstack tool can be used to flag the stack as
+  executable on ELF binaries.
+
+  Finally, network-access is limited for most levels by a local
+  firewall.
+
+--[ Tools ]--
+
+ For your convenience we have installed a few useful tools which you can find
+ in the following locations:
+
+    * gef (https://github.com/hugsy/gef) in /opt/gef/
+    * pwndbg (https://github.com/pwndbg/pwndbg) in /opt/pwndbg/
+    * gdbinit (https://github.com/gdbinit/Gdbinit) in /opt/gdbinit/
+    * pwntools (https://github.com/Gallopsled/pwntools)
+    * radare2 (http://www.radare.org/)
+
+--[ More information ]--
+
+  For more information regarding individual wargames, visit
+  http://www.overthewire.org/wargames/
+
+  For support, questions or comments, contact us on discord or IRC.
+
+  Enjoy your stay!
+
+WELCOME TO THE UPPERCASE SHELL
+>> LS
+sh: 1: LS: Permission denied
+>> ls
+sh: 1: LS: Permission denied
+>> whoami
+sh: 1: WHOAMI: Permission denied
+>> \l\s
+sh: 1: LS: Permission denied
+>> 
+>> \l\s
+sh: 1: LS: Permission denied
+>> env ls
+sh: 1: ENV: Permission denied
+>> ${PATH:0:1}${PATH:2:1}
+sh: 1: Bad substitution
+>> echo -e "\x6c\x73" | sh
+sh: 1: ECHO: Permission denied
+sh: 1: SH: Permission denied
+>> bash
+sh: 1: BASH: Permission denied
+>> ls
+sh: 1: LS: Permission denied
+>> $0
+$ ls
+uppershell
+$ bash 
+bandit33@bandit:~$ ls
+uppershell
+bandit33@bandit:~$ ls uppershell 
+uppershell
+bandit33@bandit:~$ cat uppershell 
+ELF4�64 
+        (444``��� /�����DDP�td, ,,,,Q�tdR�td//lib/ld-linux.so.2GNU� ��mԳ������Ԧ��pGNU
+                                                                                         �( 
+3\�5bandit33@bandit:~$ ls                                                                   �K��gUa4F&^-� !UM@_IO_stdin_usedfgetsstdinputsexitffluuppershelllibc_start_mainprintftouppersetreuidgeteuidlibc.so.6GLIBC_2.0GLIBC_2.34__gmon_start__fii
+bandit33@bandit:~$ 
+$�
+ S�����/��������t�Ѓ[��5��%��%h������%������h������%
+                                                   h�����%h �����%h(�����%h0�����%h8�p����% h@�`����%$hH�P���1�^����PTR���/jjQV�� ���P�8����$���f�f�f�f�f�f�f��f�f�f�f�f�f�f���$�f�f�f�f�f�f��0=0t$���t���h0�Ѓ���.��&��.��&��&�0-0���������t ���tU���Ph0�҃��Ít&Í�&���=Du���h����D�Í�&Í�&��늍L$����q�U��SQ�� �ȋ@������e��E�1��Z������S����SP��������
+                                                    �I�������
+                                                             h'���������
+                                                                        j��������@��Ph�������P���������u
+��
+  j����ǅ�����9������������������
+                                P������������������������������������������u���
+                                                                               ������P�������G���S��#������,�[�WELCOME TO THE UPPERCASE SHELL>> (���������D����p�����zR|
+                    X���2zR|
+                           l��� 0h���F
+                                      J
+                                       tx?�;*2$"$T
+D��
+ IuBuxu|��f
+�����o��   �
+�
+8J0V�O_0f�l~(��� ��,���H�GCC: (Ubuntu 13.2.0-23ubuntu4) 13.2.0 ��
+    crt1.o__abi_tag__wrap_maincrtstuff.cderegister_tm_clones__do_global_dtors_auxcompleted.0__do_global_dtors_aux_fini_array_entryframe_dummy__frame_dummy_init_array_entryupper.c__FRAME_END___DYNAMIC__GNU_EH_FRAME_HDR_GLOBAL_OFFSET_TABLE___libc_start_main@GLIBC_2.34__x86.get_pc_thunk.bxprintf@GLIBC_2.0fflush@GLIBC_2.0fgets@GLIBC_2.0_edata_finigeteuid@GLIBC_2.0__data_startputs@GLIBC_2.0system@GLIBC_2.0__gmon_start__exit@GLIBC_2.0__dso_handle_IO_stdin_usedsetreuid@GLIBC_2.0stdin@GLIBC_2.0_end_dl_relocate_static_pie_fp_hw__bss_starttoupper@GLIBC_2.0__TMC_END___init.symtab.strtab.shstrtab.interp.note.gnu.build-id.note.ABI-tag.gnu.hash.dynsym.dynstr.gnu.version.gnu.version_r.rel.dyn.rel.plt.init.text.fini.rodata.eh_frame_hdr.eh_frame.init_array.fini_array.dynamic.got.got.plt.data.bss.comment�#��$� D���o�$N
+                                                                                  �V���^���o��k���o��0z � B��� �  ���#���� +�,, ,�XX ��/�/�/���/4�((@0 �000&X0� 
+bandit33@bandit:~$ ls
+uppershell
+bandit33@bandit:~$ file uppershell 
+uppershell: setuid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=9a0992be6dd4b3e5fd9693be1d039ad4a68eaa70, for GNU/Linux 3.2.0, not stripped
+bandit33@bandit:~$ cat /etc/passwd | grep bandit32
+bandit32:x:11032:11032:bandit level 32:/home/bandit32:/home/bandit32/uppershell
+bandit33@bandit:~$ cat /etc/passwd | grep bandit33
+bandit33:x:11033:11033:bandit level 33:/home/bandit33:/bin/bash
+bandit33@bandit:~$ ls
+uppershell
+bandit33@bandit:~$ cat /etc/bandit_pass/bandit32
+cat: /etc/bandit_pass/bandit32: Permission denied
+bandit33@bandit:~$ cat /etc/bandit_pass/bandit33
+tQdtbs5D5i2vJwkO8mEyYEyTL8izoeJ0
+bandit33@bandit:~$ 
+
+
+
+passwd: tQdtbs5D5i2vJwkO8mEyYEyTL8izoeJ0
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Done.

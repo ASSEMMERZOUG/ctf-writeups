@@ -1,0 +1,48 @@
+# Nmap 7.98 scan initiated Thu Nov 27 14:14:52 2025 as: nmap -sU -A -oN udp-nmap.txt 10.10.11.87
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+RTTVAR has grown to over 2.3 seconds, decreasing to 2.0
+Nmap scan report for 10.10.11.87
+Host is up (1.3s latency).
+Not shown: 996 closed udp ports (port-unreach)
+PORT     STATE         SERVICE   VERSION
+68/udp   open|filtered dhcpc
+69/udp   open          tftp      Netkit tftpd or atftpd
+500/udp  open          isakmp?
+| ike-version: 
+|   attributes: 
+|     XAUTH
+|_    Dead Peer Detection v1.0
+| fingerprint-strings: 
+|   IKE_MAIN_MODE: 
+|     "3DUfw
+|   IPSEC_START: 
+|_    .Q(U
+4500/udp open|filtered nat-t-ike
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port500-UDP:V=7.98%I=7%D=11/27%Time=69285323%P=x86_64-unknown-linux-gnu
+SF:%r(IKE_MAIN_MODE,70,"\0\x11\"3DUfw\x0f\xc8{\t\xc6\xa9n\xa0\x01\x10\x02\
+SF:0\0\0\0\0\0\0\0p\r\0\x004\0\0\0\x01\0\0\0\x01\0\0\0\(\x01\x01\0\x01\0\0
+SF:\0\x20\x01\x01\0\0\x80\x01\0\x05\x80\x02\0\x02\x80\x04\0\x02\x80\x03\0\
+SF:x01\x80\x0b\0\x01\x80\x0c\0\x01\r\0\0\x0c\t\0&\x89\xdf\xd6\xb7\x12\0\0\
+SF:0\x14\xaf\xca\xd7\x13h\xa1\xf1\xc9k\x86\x96\xfcwW\x01\0")%r(IPSEC_START
+SF:,9C,"1'\xfc\xb08\x10\x9e\x89\x08\xda\.Q\(U\x9b\xa4\x01\x10\x02\0\0\0\0\
+SF:0\0\0\0\x9c\r\0\x004\0\0\0\x01\0\0\0\x01\0\0\0\(\x01\x01\0\x01\0\0\0\x2
+SF:0\x01\x01\0\0\x80\x01\0\x05\x80\x02\0\x02\x80\x04\0\x02\x80\x03\0\x03\x
+SF:80\x0b\0\x01\x80\x0c\x0e\x10\r\0\0\x0c\t\0&\x89\xdf\xd6\xb7\x12\r\0\0\x
+SF:14\xaf\xca\xd7\x13h\xa1\xf1\xc9k\x86\x96\xfcwW\x01\0\r\0\0\x18@H\xb7\xd
+SF:5n\xbc\xe8\x85%\xe7\xde\x7f\0\xd6\xc2\xd3\x80\0\0\0\0\0\0\x14\x90\xcb\x
+SF:80\x91>\xbbin\x08c\x81\xb5\xecB{\x1f");
+Too many fingerprints match this host to give specific OS details
+Network Distance: 2 hops
+
+TRACEROUTE (using port 443/tcp)
+HOP RTT       ADDRESS
+1   424.93 ms 10.10.16.1
+2   216.29 ms 10.10.11.87
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Nov 27 14:36:11 2025 -- 1 IP address (1 host up) scanned in 1278.81 seconds

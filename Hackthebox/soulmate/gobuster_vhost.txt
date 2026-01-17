@@ -1,0 +1,19 @@
+===============================================================
+Gobuster v3.8
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                       http://soulmate.htb
+[+] Method:                    GET
+[+] Threads:                   20
+[+] Wordlist:                  /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt
+[+] User Agent:                gobuster/3.8
+[+] Timeout:                   10s
+[+] Append Domain:             true
+[+] Exclude Hostname Length:   false
+===============================================================
+Starting gobuster in VHOST enumeration mode
+===============================================================
+ftp.soulmate.htb Status: 302 [Size: 0] [--> /WebInterface/login.html]
+===============================================================
+Finished
+===============================================================

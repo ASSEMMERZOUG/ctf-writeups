@@ -17,9 +17,3 @@ Remediation — how to fix what was found
 
 Tools Used
 nmap gobuster ffuf burpsuite sqlmap impacket netcat python3 curl linpeas winpeas
-
-Contact
-
-Email: assemmerzoug1@gmail.com
-LinkedIn: assemmerzoug
-GitHub: ASSEMMERZOUG

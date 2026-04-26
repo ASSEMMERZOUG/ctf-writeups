@@ -1,2 +1,0 @@
-user flag: 09be92b9ba37b5a976104330f2862e1a
-root flag: 892d7232e8a091ac6dd1b4511efcb404

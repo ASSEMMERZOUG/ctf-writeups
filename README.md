@@ -2,8 +2,7 @@ CTF Writeups
 
 Documented penetration testing methodology across HTB, TryHackMe, and OverTheWire challenges.
 
-Author: Assem Merzoug — Web Penetration Tester | BSc Electrical Engineering | Bug Bounty Hunter
-Profiles: HackTheBox · HackerOne · TryHackMe · Portfolio
+Author: Assem Merzoug — Web Penetration Tester | BSc Electrical Engineering | CTF Player & Bug Bounty Hunter
 
 Methodology
 Every writeup follows a structured pentest report format:
@@ -13,7 +12,3 @@ Vulnerability Identification — manual analysis + tool-assisted
 Exploitation — step-by-step with screenshots
 Post-Exploitation / Privilege Escalation
 Remediation — how to fix what was found
-
-
-Tools Used
-nmap gobuster ffuf burpsuite sqlmap impacket netcat python3 curl linpeas winpeas

@@ -5,6 +5,7 @@ a client report. Newest first.
 
 | Machine | OS | Solved | Chain |
 |---|---|---|---|
+| [DevHub](devhub/) | Linux | 21 Oct 2026 | MCPJam Inspector 1.4.2 executed any command posted to its unauthenticated `/api/mcp/connect` (CVE-2026-23744); the Jupyter token sat in the process list and opened a terminal as `analyst`; a root-run ops service, owned by that account, carried a hidden `ops._admin_dump` tool that returned root's private SSH key |
 | [Principal](principal/) | Linux | 21 Oct 2026 | pac4j-jwt 6.0.3 accepted an unsigned `PlainJWT` inside a JWE the server would open with a key it published; the dashboard showed a deployment password that opened an SSH account; that account could read the SSH CA private key, and `TrustedUserCAKeys` with no principals file let a certificate be minted for `root` |
 | [Fireflow](fireflow/) | Linux | 19 Oct 2026 | The public "Open Agent" button leaked a Langflow `flow_id`; CVE-2026-33017 gave code execution as the web account; a password reused from Langflow's config opened `nightfall`; that account held credentials for an MCP server with a JWT flaw, and kubelet `nodes/proxy` finished the job as root on the node |
 | [Reactor](reactor/) | Linux | 11 Oct 2026 | A Node.js application on TCP 3000 running framework versions below the fixed release for a published flaw: one crafted request, no account needed. Its own secrets followed — the user database and an internal API key — then a staff password reused for SSH, then the machine's top privilege |

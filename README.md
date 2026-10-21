@@ -12,6 +12,7 @@ other repo: no LaTeX, no Word, no template borrowed from somewhere.
 
 | Machine | OS | Solved | The chain, short version |
 |---|---|---|---|
+| [DevHub](hackthebox/devhub/) | Linux | Oct 2026 | MCPJam Inspector RCE, Jupyter token in the process list, a hidden admin tool that dumps root's SSH key |
 | [Principal](hackthebox/principal/) | Linux | Oct 2026 | `alg:none` inside a valid JWE, password reuse, then the SSH CA signed a certificate for root |
 | [Fireflow](hackthebox/fireflow/) | Linux | Oct 2026 | Langflow RCE, a reused config password, an MCP server, root on the Kubernetes node |
 | [Reactor](hackthebox/reactor/) | Linux | Oct 2026 | One crafted request into the Node.js app, its own secrets, then the admin account |

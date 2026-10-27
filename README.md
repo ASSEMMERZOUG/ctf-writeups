@@ -3,7 +3,7 @@
 I break into machines on purpose, then write the report I would hand a client:
 what I found, how I proved it, and how it should be fixed.
 
-Fourteen Hack The Box machines, documented end to end — recon, the request that
+Sixteen Hack The Box machines, documented end to end — recon, the request that
 proved each finding, the escalation, and the fix. I build them with
 [pdfsmith](https://github.com/ASSEMMERZOUG/pdfsmith), the report engine in my
 other repo: no LaTeX, no Word, no template borrowed from somewhere.
@@ -12,6 +12,8 @@ other repo: no LaTeX, no Word, no template borrowed from somewhere.
 
 | Machine | OS | Solved | The chain, short version |
 |---|---|---|---|
+| [Odori](hackthebox/odori/) | Linux | Oct 2026 | Guest-readable backup share holding the disk image and the SFTP password in plaintext, a `ForceCommand` wrapper the confined account could overwrite, and a world-writable `__pycache__` behind a root cron |
+| [Abducted](hackthebox/abducted/) | Linux | Oct 2026 | Print job name injected into a shell command, world-readable backup credential, a share that wrote as another user, then a systemd drop-in plus polkit |
 | [DevHub](hackthebox/devhub/) | Linux | Oct 2026 | MCPJam Inspector RCE, Jupyter token in the process list, a hidden admin tool that dumps root's SSH key |
 | [Principal](hackthebox/principal/) | Linux | Oct 2026 | `alg:none` inside a valid JWE, password reuse, then the SSH CA signed a certificate for root |
 | [Fireflow](hackthebox/fireflow/) | Linux | Oct 2026 | Langflow RCE, a reused config password, an MCP server, root on the Kubernetes node |

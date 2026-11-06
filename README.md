@@ -3,7 +3,7 @@
 I break into machines on purpose, then write the report I would hand a client:
 what I found, how I proved it, and how it should be fixed.
 
-Eighteen Hack The Box machines, documented end to end — recon, the request that
+Nineteen Hack The Box machines, documented end to end — recon, the request that
 proved each finding, the escalation, and the fix. I build them with
 [pdfsmith](https://github.com/ASSEMMERZOUG/pdfsmith), the report engine in my
 other repo: no LaTeX, no Word, no template borrowed from somewhere.
@@ -13,6 +13,7 @@ other repo: no LaTeX, no Word, no template borrowed from somewhere.
 | Machine | OS | Solved | The chain, short version |
 |---|---|---|---|
 | [MakeSense](hackthebox/makesense/) | Linux | Nov 2026 | Theme key shipped in the browser, stored XSS through the contact form, plugin upload to a shell, and a password shared with a root OCR service |
+| [Checkpoint](hackthebox/checkpoint/) | Windows | Oct 2026 | Recycle Bin delegation restores a deleted account with a known password, a VS Code share runs an extension, and a running server's memory image carries Domain Admin |
 | [Odori](hackthebox/odori/) | Linux | Oct 2026 | Guest-readable backup share holding the disk image and the SFTP password in plaintext, a `ForceCommand` wrapper the confined account could overwrite, and a world-writable `__pycache__` behind a root cron |
 | [Abducted](hackthebox/abducted/) | Linux | Oct 2026 | Print job name injected into a shell command, world-readable backup credential, a share that wrote as another user, then a systemd drop-in plus polkit |
 | [DevHub](hackthebox/devhub/) | Linux | Oct 2026 | MCPJam Inspector RCE, Jupyter token in the process list, a hidden admin tool that dumps root's SSH key |
@@ -40,13 +41,13 @@ README, and the PDF.
 - Scope, methodology, and the services actually found.
 - Each finding: where it lives, what it is, the request or command that proves
   it, and what it gives an attacker.
-- Reproduction steps with screenshots.
+- Reproduction steps with the commands and output that prove each finding.
 - Remediation: what to change, not "validate your inputs".
 
 ## Notes
 
 - A machine goes up here once it is retired. No walkthrough for a live box.
-- Every flag in the screenshots is redacted. Passwords in the text are the ones
+- Every flag in a screenshot or command output is redacted. Passwords in the text are the ones
   the box ships with or that were cracked during the run — nothing here is a
   credential to anything real.
 

@@ -3,7 +3,7 @@
 I break into machines on purpose, then write the report I would hand a client:
 what I found, how I proved it, and how it should be fixed.
 
-Nineteen Hack The Box machines, documented end to end — recon, the request that
+Twenty Hack The Box machines, documented end to end — recon, the request that
 proved each finding, the escalation, and the fix. I build them with
 [pdfsmith](https://github.com/ASSEMMERZOUG/pdfsmith), the report engine in my
 other repo: no LaTeX, no Word, no template borrowed from somewhere.
@@ -12,6 +12,7 @@ other repo: no LaTeX, no Word, no template borrowed from somewhere.
 
 | Machine | OS | Solved | The chain, short version |
 |---|---|---|---|
+| [DoubleTake](hackthebox/doubletake/) | Linux | Nov 2026 | A 300-byte password bypasses musl SSH for an account shadow marks as locked, a saved Firefox login hands over the web app, and Docker's archive endpoint runs the container's own xz as host root |
 | [MakeSense](hackthebox/makesense/) | Linux | Nov 2026 | Theme key shipped in the browser, stored XSS through the contact form, plugin upload to a shell, and a password shared with a root OCR service |
 | [Checkpoint](hackthebox/checkpoint/) | Windows | Oct 2026 | Recycle Bin delegation restores a deleted account with a known password, a VS Code share runs an extension, and a running server's memory image carries Domain Admin |
 | [Odori](hackthebox/odori/) | Linux | Oct 2026 | Guest-readable backup share holding the disk image and the SFTP password in plaintext, a `ForceCommand` wrapper the confined account could overwrite, and a world-writable `__pycache__` behind a root cron |
